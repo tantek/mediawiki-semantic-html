@@ -25,7 +25,8 @@ class SemanticHTMLParser {
            'parseSamp' => 'samp',
            'parseTime' => 'time',
            'parseVar' => 'var',
-        );
+           'parseVideo' => 'video',
+    );
 
     // __callStatic isn't implemented until 5.3, so need explicit methods:
     public static function parseAbbr($text, $attributes, $parser) {
@@ -51,6 +52,9 @@ class SemanticHTMLParser {
     }
     public static function parseVar($text, $attributes, $parser) {
         return SemanticHTMLParser::parseElement('var', $text, $attributes, $parser);
+    }    
+    public static function parseVideo($text, $attributes, $parser) {
+        return SemanticHTMLParser::parseElement('video', $text, $attributes, $parser);
     }    
     
     private static function parseElement($element, $text, $attributes, $parser) {    
